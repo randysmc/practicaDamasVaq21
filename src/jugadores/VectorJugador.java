@@ -1,4 +1,4 @@
-package jugadores;
+package src.jugadores;
 
 import java.util.*;
 
@@ -6,7 +6,7 @@ public class VectorJugador {
 
     private Jugador[] jugadores = new Jugador[5];
     private int indice;
-    static Scanner teclado = new Scanner(System.in);
+    Scanner teclado = new Scanner(System.in);
 
     public VectorJugador(){
         indice=1;

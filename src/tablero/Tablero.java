@@ -31,21 +31,23 @@ public class Tablero{
         boolean blanco =true;
         String linea1 = "";
         String linea2 = "";
-        //String linea3 = "";
+        String linea3 = "";
 
         for(int i=0;i<8;i++){
-            blanco =!blanco;
-
             for(int j=0;j<8;j++){
-                linea1 += tablero[i][j].getFila(blanco);
-                linea2 += tablero[i][i].getFila(blanco);
+                blanco =!blanco;
+
+                linea1 += tablero[i][j].getFila1(blanco);
+                linea2 += tablero[i][i].getFila2(blanco);
+                linea3 += tablero[i][j].getFila1(blanco);
             }
+            blanco = !blanco;
             System.out.println(linea1);
             System.out.println(linea2);
-            //System.out.println(linea3);
+            System.out.println(linea3);
             linea1= "";
             linea2= "";
-            //linea3 = "";
+            linea3 = "";
         }
 
     }

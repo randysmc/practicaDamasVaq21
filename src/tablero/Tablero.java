@@ -19,10 +19,16 @@ public class Tablero{
     }
 
     public void iniciarTablero(){
-
         for(int i=0; i<8;i++){
             for(int j=0; j<8; j++){
                     tablero[i][j] = new Casilla();
+                    if(i<3){
+                        tablero[i][j].iniciarFichaRoja();
+                    }
+                    if(i>4){
+                        tablero[i][j].iniciarFichaRoja();
+                    }
+
             }
         }
     }

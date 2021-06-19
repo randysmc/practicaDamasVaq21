@@ -1,43 +1,47 @@
 package src.principal;
-import src.jugadores.VectorJugador;
+
+import src.jugadores.*;
 import src.tablero.*;
 import java.util.*;
 
+
 public class Principal {
 
-    private VectorJugador jugadores = new VectorJugador();
+    VectorJugadores listaJugadores = new VectorJugadores();
     private Tablero tablero = new Tablero();
-    static Scanner teclado = new Scanner(System.in);
-
-    public static void main(String[]args){
-        Principal p = new Principal();
-        
-
-    }
+    Scanner teclado = new Scanner(System.in);
 
     public Principal(){
-        int eleccion =0;
-        while(eleccion!=4){
-            System.out.println("Bienvenido al juego de ajedrez");
-            System.out.println("1 Ingresar usuario");
-            System.out.println("2. Mostrar Jugadores");
-            System.out.println("3. pintar tablero");
-            eleccion = Integer.parseInt(teclado.nextLine());
-            if(eleccion ==1){
-                jugadores.agregarJugador();
-            }
-            if(eleccion ==2){
-                jugadores.mostrarJugadores();
-            }
-            if(eleccion ==3){
-                tablero.jugar();
-                System.out.println("\n");
-            }
+        menuPrincipal();
 
+
+    }
+
+    public void menuPrincipal(){
+        System.out.println("Ingrese la opcion que quiera");
+        int eleccion =0;
+        while(eleccion !=-1){
+            System.out.println("Ingrese numero");
+            eleccion = Integer.parseInt(teclado.nextLine());
+            switch(eleccion){
+                case 1:
+                    listaJugadores.agregarJugador();
+                    break;
+                case 2:
+                    listaJugadores.mostrarJugadores();
+                    break;
+                case 3:
+                    tablero.jugar();
+            }
         }
+    }
+
+
+    public static void main(String[] args) {
+        Principal p = new Principal();
 
     }
 
 
-    
+
 }

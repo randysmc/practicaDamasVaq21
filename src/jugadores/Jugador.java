@@ -1,42 +1,41 @@
 package src.jugadores;
 
-public class Jugador{
+public class Jugador {
 
     private String nombre;
     private int puntuacion;
-    private int id;
+    private int partidasGanadas;
 
-    public Jugador(String nombre, int puntuacion){
+    public Jugador(String nombre) {
         this.nombre = nombre;
-        this.puntuacion = puntuacion;
-    }
-    public Jugador(String nombre){
-        this.nombre = nombre;
+        this.puntuacion = 0;
+        this.partidasGanadas = 0;
     }
 
-    public String getNombre(){
+    public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre){
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public int getPuntuacion(){
+    public int getPuntuacion() {
         return puntuacion;
     }
 
-    public void setPuntuacion(int puntuacion){
+    public void setPuntuacion(int puntuacion) {
         this.puntuacion = puntuacion;
     }
 
-    public int getId(){
-        return id;
+    public int getPartidasGanadas() {
+        return partidasGanadas;
     }
 
-    public void setId(){
-        this.id = id;
+    public void setPartidasGanadas(int partidasGanadas) {
+        this.partidasGanadas = partidasGanadas;
     }
+
 
 
 }

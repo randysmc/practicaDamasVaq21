@@ -1,5 +1,6 @@
 package src.tablero;
-
+import src.jugadores.*;
+import src.principal.*;
 
 
 public class Casilla {
@@ -8,6 +9,7 @@ public class Casilla {
     private boolean blanca;
     private final char CUADRO_NEGRO = (char)81;
     private Ficha ficha;
+    private boolean roja;
 
 
     public static final String ANSI_BLACK = "\u001B[30m";
@@ -17,12 +19,22 @@ public class Casilla {
     public Casilla(boolean blanca){
         this.blanca = blanca;
         this.ficha = null;
-        //ficha = new Ficha(true);
+
+
 
     }
 
+    public boolean estaVacia(){
+        if(ficha == null)
+            return true;
+
+        return false;
+    }
+
     public Ficha getFicha() {
-        return ficha;
+        Ficha temp = this.ficha;
+        this.ficha = null;
+        return temp;
     }
 
     public void setFicha(Ficha ficha) {
@@ -38,21 +50,23 @@ public class Casilla {
         return ANSI_BLACK+CUADRO_NEGRO;
     }
 
-    public void iniciarFicha(boolean blanca){
-        ficha = new Ficha(blanca);
+    public boolean hayFicha(){
+        return(ficha != null);
     }
 
     public String getFila1(){
-        if(blanca){
-            if(ficha != null) return getCuadroBlanco()+ficha.getFichaRoja()+ficha.getFichaRoja()+ficha.getFichaRoja()+getCuadroBlanco();
+        if(blanca ){
+            if(ficha != null) return getCuadroBlanco()+ficha.getFicha()+ficha.getFicha()+ficha.getFicha()+getCuadroBlanco();
+            //return getCuadroBlanco()+ficha.getFicha(roja)+ficha.getFicha(roja)+ficha.getFicha(roja)+getCuadroBlanco();
+
             if(ficha == null) return getCuadroBlanco()+getCuadroBlanco()+getCuadroBlanco()+getCuadroBlanco()+getCuadroBlanco();
         }
         return getCuadroNegro()+getCuadroNegro()+getCuadroNegro()+getCuadroNegro()+getCuadroNegro();
     }
 
-        public String getFila2(){
+       public String getFila2(){
         if(blanca){
-            if(ficha != null) return getCuadroBlanco()+getCuadroBlanco()+ficha.getFichaRoja()+getCuadroBlanco()+getCuadroBlanco();
+            if(ficha != null) return getCuadroBlanco()+getCuadroBlanco()+ficha.getFicha()+getCuadroBlanco()+getCuadroBlanco();
             if(ficha == null) return getCuadroBlanco()+getCuadroBlanco()+getCuadroBlanco()+getCuadroBlanco()+getCuadroBlanco();
         }
         return getCuadroNegro()+getCuadroNegro()+getCuadroNegro()+getCuadroNegro()+getCuadroNegro();
@@ -60,7 +74,7 @@ public class Casilla {
 
             public String getFila3(){
         if(blanca){
-            if(ficha != null) return getCuadroBlanco()+ficha.getFichaRoja()+ficha.getFichaRoja()+ficha.getFichaRoja()+getCuadroBlanco();
+            if(ficha != null) return getCuadroBlanco()+ficha.getFicha()+ficha.getFicha()+ficha.getFicha()+getCuadroBlanco();
             if(ficha == null) return getCuadroBlanco()+getCuadroBlanco()+getCuadroBlanco()+getCuadroBlanco()+getCuadroBlanco();
         }
         return getCuadroNegro()+getCuadroNegro()+getCuadroNegro()+getCuadroNegro()+getCuadroNegro();
@@ -72,3 +86,4 @@ public class Casilla {
 
 
 }
+

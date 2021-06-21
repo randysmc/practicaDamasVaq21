@@ -20,6 +20,8 @@ public class VectorJugadores {
         siguientePos=1;
     }
 
+    /**
+    metodo para agreagar jugadores*/
     public void agregarJugador(String nombre){
         if(siguientePos>JUGADORES){
             System.out.println("No se puede ingresar a otro jugador");
@@ -28,9 +30,9 @@ public class VectorJugadores {
         }
         siguientePos++;
     }
-
+    /*Metodo*/
     public void agregarJugador(){
-        System.out.println("Ingrese su nombre");
+        System.out.print("Ingrese su nombre");
         String nombre = teclado.nextLine();
         agregarJugador(nombre);
     }
@@ -39,11 +41,15 @@ public class VectorJugadores {
     public void mostrarJugadores(){
         for (int i = 0; i < (siguientePos-1); i++) {
             System.out.println(i+" Nombre: " +jugador[i].getNombre()+
-                    " puntuacion: " +jugador[i].getPuntuacion());
+                    "\tpuntuacion: " +jugador[i].getPuntuacion());
 
         }
 
     }
+
+    /**
+    En este metodo recibimos como parametros dos jugadores que nos envian
+    para asi poderlos asignarlos a un nuevo arreglo */
 
     public void agregarCompetidor(int jug1, int jug2){
 
@@ -59,10 +65,15 @@ public class VectorJugadores {
         }
     }
 
+    /*
+    Aqui enviamos el arreglo de competidores para que la otra clase los reciba como parametros*/
+
     public Jugador enviarJugador(int pos){
         Jugador jug = competidor[pos];
         return jug;
     }
+
+    /*Aqui desarrollamos el juego de piedra, papel y tijera para elegir al primer jugador*/
 
     public void elegirTurnos(){
         int ju1,ju2, ganador;
@@ -70,27 +81,39 @@ public class VectorJugadores {
         System.out.println("Se elegiran los turnos de los jugadores a competir");
         System.out.println("Se hara un juego de piedra, papel o tijera");
         System.out.println(competidor[0].getNombre()+ " Versus "+ competidor[1].getNombre());
+        System.out.println("presione ENTER para ver al ganador");
+        teclado.nextLine();
+        //un ciclo do while para evitar que los dos aleatorios sean iguales
         do{
         ju1 = obtenerAleatorio();
         ju2 = obtenerAleatorio();
         }while(ju1 == ju2);
+        //mostramos el numero aleatorio de cada jugador
         System.out.println(ju1);
         System.out.println(ju2);
+        //llamamos al metodo resultado para asignar a la mano la figura que saco
         String manoJ1 = resultado(ju1);
         String manoJ2 = resultado(ju2);
-        System.out.println(competidor[0].getNombre()+"obtuvo: " +manoJ1);
+
+        //aqui recibimos la mano obtenida y llamamos al metodo para pintarla
+        System.out.println(competidor[0].getNombre()+" obtuvo: " +manoJ1);
         pintar(ju1);
         System.out.println("\n");
         pintar(ju2);
         System.out.println(competidor[1].getNombre()+ " obtuvo: " +manoJ2);
         ganador = elegirGanador(manoJ1, manoJ2);
         ordenarTurnos(ganador);
+        System.out.println("ENTER para continuar");
+        teclado.nextLine();
 
     }
+
+    //metodo para validar al ganador con un ifelse
 
     public int elegirGanador(String mano1, String mano2){
 
         int ganador=-1;
+
         if(mano1.equalsIgnoreCase("piedra")){
             if(mano2.equalsIgnoreCase("papel"))
                 ganador =1;
@@ -137,16 +160,18 @@ public class VectorJugadores {
             tijera();
     }
 
+    //Aqui asignamos los turnos si gano o no la mano de piedra, papel;
+
     public void ordenarTurnos(int ganador){
         Jugador[] aux = new Jugador[1];
         if(ganador ==0){
-            System.out.println("Ganador:" +competidor[0].getNombre());
+            System.out.println("El Ganador es: " +competidor[0].getNombre());
 
 
 
         }if(ganador ==1){
-            System.out.println("Ganador:"+competidor[1].getNombre());
-            aux[0] =competidor[1];
+            System.out.println("El Ganador es: "+competidor[1].getNombre());
+            aux[0] =competidor[1]; //var auxiliar para guardar al competidor
             competidor[1]= competidor[0];
             competidor[0]= aux[0];
         }
@@ -183,8 +208,8 @@ public class VectorJugadores {
     public void mostrarReportePartidas(){
         for(int i=0; i<(siguientePos -1); i++){
             System.out.println(i+" Nombre: "+jugador[i].getNombre()+
-                    " Puntuacion: " +jugador[i].getPuntuacion()+ " ha ganado: " +
-                    jugador[i].getPartidasGanadas() + " en: "+jugador[i].getPartidasJugadas()+ " jugadas");
+                    "\tPuntuacion: " +jugador[i].getPuntuacion()+ "\tha ganado: " +
+                    jugador[i].getPartidasGanadas() + "  partidas, en: "+jugador[i].getPartidasJugadas()+ "  partidas jugadas");
         }
     }
 

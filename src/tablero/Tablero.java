@@ -31,6 +31,7 @@ public class Tablero {
         iniciarTablero();
         competidor[0].setPartidasJugadas(j1.getPartidasJugadas()+1);
         competidor[1].setPartidasJugadas(j2.getPartidasJugadas()+1);
+        System.out.println("\n\n");
         competidor[0].setPuntuacionParcial(0);
         competidor[1].setPuntuacionParcial(0);
         int iteracion=0;
@@ -53,6 +54,7 @@ public class Tablero {
                 System.out.println("Turno de mover de " +competidor[i].getNombre());
                 pintarTablero();
                 moverFicha(competidor[i]);
+                System.out.println("ENTER para continuar");
 
                 System.out.println(competidor[i].getFicha());
                 competidor[i].setPuntuacion(competidor[i].getPuntuacion()+competidor[i].getPuntuacionParcial());
@@ -75,10 +77,12 @@ public class Tablero {
         if(competidor[0].getPuntuacion()>competidor[1].getPuntuacion()){
            competidor[0].setPartidasGanadas(competidor[0].getPartidasGanadas()+1);
             System.out.println("GANADOR" +competidor[0].getNombre());
+            System.out.println("\n\n");
 
         }else{
            competidor[1].setPartidasGanadas(competidor[1].getPartidasGanadas()+1);
             System.out.println("GANADOR" +competidor[1].getNombre());
+            System.out.println("\n\n");
 
         }
 
@@ -100,13 +104,13 @@ public class Tablero {
 
     public void moverFicha(Jugador jug){
         int x, y, xF, yF;
-        System.out.println("Ingresa la coordenada en x");
+        System.out.print(" Ingresa la coordenada en x");
         y = Integer.parseInt(teclado.nextLine());
-        System.out.println("Ingresa la coordenada y");
+        System.out.print(" Ingresa la coordenada y");
         x = Integer.parseInt(teclado.nextLine());
-        System.out.println("Ingrese la coordenada x final");
+        System.out.print(" Ingrese la coordenada x final");
         yF = Integer.parseInt(teclado.nextLine());
-        System.out.println("Ingrese coordenada Y final");
+        System.out.print(" Ingrese coordenada Y final");
         xF = Integer.parseInt(teclado.nextLine());
         boolean movValido =movimientoValido(x,y,xF,yF,jug);
         if(movValido ==true){

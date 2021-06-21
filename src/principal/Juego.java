@@ -6,7 +6,6 @@ import src.principal.*;
 import src.tablero.*;
 
 
-
 public class Juego {
     VectorJugadores listaJugadores;
     Jugador comp1, comp2;
@@ -92,4 +91,3 @@ public class Juego {
 
 
 }
-

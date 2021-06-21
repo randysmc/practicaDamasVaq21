@@ -6,6 +6,7 @@ import src.tablero.*;
 public class Jugador {
 
     private String nombre;
+    private int puntuacionParcial;
     private int puntuacion;
     private int partidasJugadas;
     private int partidasGanadas;
@@ -25,6 +26,17 @@ public class Jugador {
     public Jugador(){
 
     }
+
+    public int getPuntuacionParcial() {
+        return puntuacionParcial;
+    }
+
+    public void setPuntuacionParcial(int puntuacionParcial) {
+        this.puntuacionParcial = puntuacionParcial;
+    }
+
+
+
 
 
     public Ficha getFicha() {

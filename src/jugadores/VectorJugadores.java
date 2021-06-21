@@ -6,7 +6,6 @@ import src.principal.*;
 import src.tablero.*;
 
 
-
 public class VectorJugadores {
     private final int JUGADORES =10;
     Jugador[] jugador = new Jugador[JUGADORES];
@@ -168,6 +167,14 @@ public class VectorJugadores {
         return resultado;
     }
 
+    public String componerNombre(String dato){
+        String comp = ""+dato;
+        if(dato.length() <10)
+            comp = "  "+comp;
+        return comp;
+
+    }
+
     public int obtenerAleatorio(){
         aleatorio = (int)(Math.random()*(4-1)+1);
         return aleatorio;
@@ -192,4 +199,3 @@ public class VectorJugadores {
 
 
 }
-

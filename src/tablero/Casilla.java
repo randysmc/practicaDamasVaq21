@@ -4,16 +4,22 @@ import src.principal.*;
 
 
 public class Casilla {
-    //private final String CUADRO_BLANCO = "X";
-    private final char CUADRO_BLANCO = (char)81;
+    private final String CUADRO_BLANCO = "X";
+    //private final char CUADRO_BLANCO = (char)81;
     private boolean blanca;
-    private final char CUADRO_NEGRO = (char)81;
+    private final String CUADRO_NEGRO = "X";
+    //private final char CUADRO_NEGRO = (char)81;
     private Ficha ficha;
     private boolean roja;
 
 
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_WHITE = "\u001B[37m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+
+    public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_CYAN = "\u001B[36m";
 
 
     public Casilla(boolean blanca){
@@ -43,11 +49,11 @@ public class Casilla {
 
 
     public String getCuadroBlanco(){
-        return ANSI_WHITE+CUADRO_BLANCO;
+        return ANSI_CYAN+CUADRO_BLANCO;
     }
 
     public String getCuadroNegro(){
-        return ANSI_BLACK+CUADRO_NEGRO;
+        return ANSI_PURPLE+CUADRO_NEGRO;
     }
 
     public boolean hayFicha(){
@@ -86,4 +92,3 @@ public class Casilla {
 
 
 }
-
